@@ -1,0 +1,382 @@
+\documentclass[11pt,twoside]{ctexart}
+\usepackage{mtpro2}
+\usepackage{CJKnumb}
+\usepackage{amsmath,amssymb}
+\usepackage{calc}
+\usepackage{intcalc}
+\usepackage{ifthen}
+\usepackage{zref-user}
+\usepackage{zref-lastpage}
+\usepackage{makecell}
+\usepackage{interfaces-makecell}
+\usepackage{dashrule}
+\usepackage{parskip}
+\usepackage[paperwidth=195mm,paperheight=270mm,left=30mm,right=25mm,top=20mm,bottom=20mm,includefoot]{geometry}
+\usepackage{enumerate}
+\usepackage{fancyhdr}
+\usepackage{tcolorbox}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+%用到的长度变量
+\newlength{\wot}
+\newlength{\wol}
+\newlength{\gmw}
+\newlength{\dl}
+
+%长度变量的初始值
+\settowidth{\wot}{复核人}
+\setlength{\wol}{0.3pt}
+\setlength{\gmw}{6em}
+\setlength{\dl}{10em}
+
+%页眉设置开始
+\renewcommand{\headrulewidth}{0pt}
+
+%装订线开始
+\fancyheadoffset[OL,ER]{\gmw}
+\fancyhead[OL]{
+\ifnum\intcalcMod{\value{page}}{4}=1
+\rotatebox{90}
+{\begin{minipage}{1.1\textheight}
+\begin{center}
+省市：\rule[-.2ex]{\dl}{\wol} 学校：\rule[-.2ex]{\dl}{\wol}  姓名：\rule[-.2ex]{\dl}{\wol} 准考证号：\rule[-.2ex]{\dl}{\wol}\\
+\tiny \hdashrule[-3ex]{\textheight}{\wol}{3pt}\\[\smallskipamount]
+\makebox[0.6\textheight][s]{装订线内不要答题}\\[-3\smallskipamount]
+\hdashrule[-3ex]{\textheight}{\wol}{3pt}
+\end{center}
+\end{minipage} }
+\fi
+}
+\fancyhead[ER]{
+\ifnum\intcalcMod{\value{page}}{4}=0
+\rotatebox{-90}
+{\begin{minipage}{1.1\textheight}
+\begin{center}
+\tiny \hdashrule[-3ex]{\textheight}{\wol}{3pt}\\[\smallskipamount]
+\makebox[0.6\textheight][s]{装订线内不要答题}\\[-3\smallskipamount]
+\hdashrule[-3ex]{\textheight}{\wol}{3pt}
+\end{center}
+\end{minipage} }
+\fi
+}
+%装订线结束
+%页眉设置结束
+%页脚设置开始
+\renewcommand{\footrulewidth}{\wol}
+\fancyfoot[C]{\heiti 微信公众号之数学的情怀\quad 第{\bf\thepage} 页 （共~{\bf\pageref{LastPage}}~页）}
+%\fancyfoot[C]{\large{{ \textbf{微信公众号之数学的情怀}}\qquad 共\zpageref{LastPage}页\quad 第\thepage 页}}
+\newcounter{ns}
+\newcounter{ts}
+\newcounter{nq}
+\newcommand{\wns}{\stepcounter{ns}\CJKnumber{\thens}、}
+\newcommand{\wq}{\stepcounter{nq}\thenq.}
+
+%大题前计分表格
+\newcommand{\tbs}{\begin{tabular}{|c|c|c|}\hline \makebox[\wot]{得分}&\makebox[\wot]{评卷人}&\makebox[\wot]{复核人}\\ \hline
+ & &\\ \hline\end{tabular}}
+
+%排版大题前计分表格,序号,题型,大题说明
+\newcommand{\ws}[2]{\raisebox{-1ex}{\begin{minipage}[b]{4.6\wot}\tbs\end{minipage}}
+\begin{minipage}[t]{\textwidth-6\wot} {\heiti \wns #1 } #2 \end{minipage} }
+\makeatletter
+\zref@newprop{totalsections}[3]{\arabic{ns}}
+\zref@addprop{LastPage}{totalsections}
+\AtBeginDocument{
+\setcounter{ts}{\zref@extractdefault{LastPage}{totalsections}{3}} }
+\makeatother
+\linespread{1.618}
+\newcommand{\D}{\,\mathrm{d}}
+\newcommand{\E}{\mathrm{e}}
+\newcommand{\dlim}{\displaystyle \lim }
+\newcommand{\dint}{\displaystyle \int }
+\newcommand{\sets}[1]{\{ #1 \}}
+
+\setCJKfamilyfont{huawenxingkai}{华文行楷} \newcommand*{\xingkai}{\CJKfamily{huawenxingkai}}%华文行楷
+\newcommand{\dis}{\displaystyle}
+\newcommand{\Rank}{\mathrm{Rank}\mspace{1mu}}
+\newcommand{\Sign}{\mathrm{Sign}\mspace{1mu}}
+\newcommand{\rd}{\mspace{1mu}\mathrm{d}}
+\newcommand{\diag}{\mathrm{diag}\mspace{1mu}}
+\newcommand{\tr}{\mathrm{tr}\mspace{1mu}}
+\newcommand{\var}{\mathrm{var}}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+
+%直立积分号，需要mathabx宏包
+\makeatletter
+\def\upintkern@{\mkern-7mu\mathchoice{\mkern-2mu}{}{}{}}
+\def\upintdots@{\mathchoice{\mkern-4mu\@cdots\mkern-4mu}%
+	{{\cdotp}\mkern1.5mu{\cdotp}\mkern1.5mu{\cdotp}}%
+	{{\cdotp}\mkern1mu{\cdotp}\mkern1mu{\cdotp}}%
+	{{\cdotp}\mkern1mu{\cdotp}\mkern1mu{\cdotp}}}
+\newcommand{\upiint}{\DOTSI\protect\UpMultiIntegral{2}}
+\newcommand{\upiiint}{\DOTSI\protect\UpMultiIntegral{3}}
+\newcommand{\upiiiint}{\DOTSI\protect\UpMultiIntegral{4}}
+\newcommand{\upidotsint}{\DOTSI\protect\UpMultiIntegral{0}}
+\newcommand{\UpMultiIntegral}[1]{%
+	\edef\ints@c{\noexpand\upintop
+		\ifnum#1=\z@\noexpand\upintdots@\else\noexpand\upintkern@\fi
+		\ifnum#1>\tw@\noexpand\upintop\noexpand\upintkern@\fi
+		\ifnum#1>\thr@@\noexpand\upintop\noexpand\upintkern@\fi
+		\noexpand\upintop
+		\noexpand\ilimits@
+	}%
+	\futurelet\@let@token\ints@a
+}
+\makeatother
+
+\DeclareFontFamily{U}{mathx}{\hyphenchar\font45}
+\DeclareFontShape{U}{mathx}{m}{n}{
+	<->s * [0.8]
+	mathx10
+}{}
+\DeclareSymbolFont{mathx}{U}{mathx}{m}{n}
+\DeclareFontSubstitution{U}{mathx}{m}{n}
+\DeclareMathSymbol{\upintop}{\mathop}{mathx}{'273}
+%\DeclareMathSymbol{\upiint}{\mathop}{mathx}{'274}
+%\DeclareMathSymbol{\upiiint}{\mathop}{mathx}{'275}
+\DeclareMathSymbol{\upointop}{\mathop}{mathx}{'276}
+\DeclareMathSymbol{\upoiint}{\mathop}{mathx}{'277}
+\makeatletter
+\newcommand{\upint}{\DOTSI\upintop\ilimits@}
+\newcommand{\upoint}{\DOTSI\upointop\ilimits@}
+
+%分数线延长mdugm
+\newcommand{\zfrac}[2]{\dfrac{{\raisebox{-0.7mm}{$#1$}}}{\;{\raisebox{0.2mm}{$#2$}}\;}}
+\newcommand{\bfrac}[2]{\dfrac{{\raisebox{-0.7mm}{$#1$}}}{{\raisebox{0.2mm}{$#2$}}}}
+
+%======================
+%试卷头开始
+\begin{document}
+%试卷标题开始
+\begin{center}\vspace{3mm}
+      {\xingkai \Large 第九届全国大学生数学竞赛预赛参考答案}\\[0.8mm]
+      { $\left(\text{非数学类, 2017年10月28日}\right)$}\\
+\end{center}
+
+%试卷标题结束
+
+%输出"绝密"字样
+{\vspace{-1.3mm}\heiti 绝密$\bigstar$启用前}\\[-4\bigskipamount]\\[-12mm]
+\begin{center}
+\vspace*{2mm}
+(16数学$-$胡八一)\\[3mm]
+ {考试形式：\underline{~闭卷~}~\hspace{2mm}考试时间：\underline{~~150~~}分钟~\hspace{2mm}满分：~\underline{~~100~~}~分}\\
+
+%根据大题数目自动生成计分总表
+\newcounter{tc}
+\newcounter{tcsr}
+\setcounter{tc}{\value{ts}+3}
+\setcounter{tcsr}{\value{tc}-1}
+\arrayrulewidth=2\wol 
+
+\vspace*{3.5mm}
+\begin{tabular}{|m{3em}<{\centering}|*{7}{m{3.5em}<{\centering}|}}\hline
+         题~号 & 一 & 二 & 三  & 四 & 五   &总~~分 \\\hline
+		满~分 & 42 & 14 & 14  & 15 & 15   &\raisebox{0.4em}{100}\rule{0pt}{8mm}\\\hline
+		得~分 &    &    &      &    &    &    \rule{0pt}{8mm} \\\hline
+	\end{tabular}
+	\\\vspace*{-1.5mm}
+	\begin{equation*}
+	\begin{aligned}
+	\mbox{注意：}
+	&1.\,\mbox{所有答题都须写在试卷密封线右边,写在其他纸上一律无效}.\hspace{12.0cm}\\
+	&2.\,\mbox{密封线左边请勿答题,密封线外不得有姓名及相关标记}.\\
+	&3.\,\mbox{如答题空白不够,可写在当页背面,并标明题号}.\\[-2mm]
+	\end{aligned}
+	\end{equation*}	
+\end{center}
+
+%试卷头结束
+
+\addvspace{1\bigskipamount}
+
+\ws{ \textbf{填空题}}{( \textbf{本题满分42分})\\}\\\\
+\wq 已知可导函数$f(x)$满足$f(x)\cos x+2\displaystyle\upint_0^x f(t)\sin t\text{d}x=x+1$，则$f(x)=$\underline{\hspace{3em}}.
+
+【答案】$\sin x+\cos x$.
+
+【解析】两边同时对$x$求导
+\[f'(x)\cos x+f(x)\sin x=1\Longrightarrow f'(x)+f(x)\tan x=\sec x.\]
+由常数变易法，从而
+\begin{align*}
+f(x)&=\mathrm{e}^{-\upint\tan x\mathrm{d}x}\Big(\upint\sec x\mathrm{e}^{\upint\tan x\mathrm{d}x}\mathrm{d}x+C\Big)\\
+&=\mathrm{e}^{\ln\cos x}\Big(\upint\zfrac{1}{\cos x}\mathrm{e}^{-\ln\cos x}\mathrm{d}x+C\Big)\\
+&=\cos x\Big(\upint\zfrac{1}{\cos^2x}\mathrm{d}x+C\Big)\\
+&=\cos x(\tan x+C)=\sin x+C\cos x
+\end{align*}
+
+由于$f(0)=1$，故$f(x)=\sin x+\cos x.$
+
+
+\wq 极限$\displaystyle\lim_{n\rightarrow 0}\sin^2(\pi \sqrt{n^2+n})=$\underline{\hspace{3em}}.
+
+【答案】1
+
+【解析】
+\begin{align*}
+\lim_{n\rightarrow 0}\sin^2(\pi\sqrt{n^2+n})
+&=\lim_{n\rightarrow 0}\sin^2(\pi\sqrt{n^2+n}-n\pi)\\
+&=\lim_{n\rightarrow 0}\sin^2\Big(\zfrac{n\pi}{\sqrt{n^2+n}+n}\Big)=1
+\end{align*}
+
+\wq 设$w=f(u,v)$具有二阶连续偏导数，且$u=x-cy$，$v=x+cy$，其中$c$为非零常数。则$w_{xx}-\zfrac{1}{c^2}w_{yy}=$\underline{\hspace{3em}}.
+
+【答案】$4f_{12}$.
+
+【解析】\[w_x=f_1+f_2,w_{xx}=f_{11}+2f_{12}+f_{22},w_y=c(f_2-f_1),\]
+\[
+w_{yy}=c\zfrac{\partial}{\partial x}(f_2-f_1)=c(cf_{11}-cf_{12}-cf_{21}+cf_{22})=c^2(f_{11}-2f_{12}+f_{22}).
+\]
+
+所以
+\[
+w_{xx}-\zfrac{1}{c^2}w_{yy}=4f_{12}.
+\]
+
+\wq 设$f(x)$有二阶导数连续，且$f(0)=f'(0)=0$，$f''(0)=6$，则$\displaystyle\lim_{n\rightarrow0}\zfrac{f(\sin^2x)}{x^4}=$\underline{\hspace{3em}}.
+
+【答案】3
+
+【解析】$f(x)$在$x=0$处的泰勒展开式
+\[f(x)=f(0)+f'(0)x+\zfrac{1}{2}f''(\xi)x^2,\]
+所以
+\[f(\sin^2x)=\zfrac{1}{2}f''(\xi)\sin^4x,\]
+于是
+\[\displaystyle\lim_{n\rightarrow0}\zfrac{f(\sin^2x)}{x^4}=\lim_{n\rightarrow0}\zfrac{\zfrac{1}{2}f''(\xi)\sin^4x}{x^4}=3.\]
+
+\wq 不定积分$\displaystyle\upint\zfrac{\mathrm{e}^{-\sin x}\sin 2x}{(1-\sin x)^2}\mathrm{d}x=$\underline{\hspace{3em}}.
+
+【答案】$\zfrac{2\mathrm{e}^{-\sin x}}{1-\sin x}+C.$
+
+【解析】令$\sin x=v$，则
+\begin{align*}
+I &=2\upint\zfrac{v\mathrm{e}^{-v}}{(1-v)^2}\mathrm{d}v\\
+&=2\upint\zfrac{\mathrm{e}^{-v}}{v-1}\mathrm{d}v+2\upint\zfrac{\mathrm{e}^{-v}}{(v-1)^2}\mathrm{d}v\\
+&=2\upint\zfrac{\mathrm{e}^{-v}}{v-1}\mathrm{d}v-2\upint\mathrm{e}^{-v}\mathrm{d}\Big(\zfrac{1}{v-1}\Big)\\
+&=2\upint\zfrac{\mathrm{e}^{-v}}{v-1}\mathrm{d}v-2\Big(\zfrac{\mathrm{e}^{-v}}{v-1}+\upint\zfrac{\mathrm{e}^{-v}}{v-1}\mathrm{d}v\Big)\\
+&=-\zfrac{2\mathrm{e}^{v}}{v-1}+C=\zfrac{2\mathrm{e}^{-\sin x}}{1-\sin x}+C
+\end{align*}
+
+\wq 记曲面$z^2=x^2+y^2$和$z=\sqrt{4-x^2-y^2}$围成空间区域$V$，则三重积分$\displaystyle\upiiint_V z\mathrm{d}x\mathrm{d}y\mathrm{d}z\\
+=$\underline{\hspace{3em}}.
+
+【答案】$2\pi$.
+
+【解析】使用球面坐标
+\begin{align*}
+I&=\upiiint_V z\mathrm{d}x\mathrm{d}y\mathrm{d}z\\
+&=\upint_0^{2\pi}\mathrm{d}\theta\upint_0^{\pi/4}\mathrm{d}\varphi\upint_0^2\rho\cos \varphi\cdot\rho^2\sin\varphi\mathrm{d}\rho\\
+&=2\pi\cdot\zfrac{1}{2}\sin^2\varphi\Big|_0^{\pi/4}\Big.\cdot\zfrac{1}{4}\rho^4\Big|_0^2\Big.\\
+&=2\pi
+\end{align*}
+
+\ws{ \textbf{解答题}}{(\textbf{本题满分14分})\\}\\\\
+设二元函数$f(x,y)$在平面上有连续的二阶导数，对任意角$\alpha$，定义一元函数
+\[g_{\alpha}(t)=f(t\cos\alpha,t\sin\alpha).\]
+若对任何$\alpha$都有$\zfrac{\mathrm{d}g_{\alpha}(0)}{\mathrm{d}t}=0$且$\zfrac{\mathrm{d}^2g_{\alpha}(0)}{\mathrm{d}t^2}>0$。证明：$f(0,0)$是$f(x,y)$的极小值。
+
+【证明】由于
+\[\zfrac{\mathrm{d}g_{\alpha}(0)}{\mathrm{d}t}=(f_x,f_y)_{(0,0)}
+\bigg(\begin{array}{@{}l@{}}
+\cos\alpha\\
+\sin\alpha
+\end{array}\bigg)=0
+\]
+对一切$\alpha$成立，故$(f_x,f_y)_{(0,0)}=(0,0)$，即$(0,0)$是$f(x,y)$的驻点。
+
+\hfill\dotfill 4分
+
+记
+\[H_f=(x,y)=\bigg(\begin{array}{@{}rl@{}}
+f_{xx}&f_{xy}\\
+f_{yx}&f_{yy}
+\end{array}\bigg)=0,\]
+则
+\begin{align*}
+\zfrac{\mathrm{d}^2g_{\alpha}(0)}{\mathrm{d}t^2}
+&=\zfrac{\mathrm{d}}{\mathrm{d}t}\bigg[(f_x,f_y)\bigg(\begin{array}{@{}l@{}}
+\cos\alpha\\
+\sin\alpha
+\end{array}\bigg)\bigg]_{(0,0)}\\
+&=(\cos\alpha,\sin\alpha)H_f(0,0)\bigg(\begin{array}{@{}ll@{}}
+f_{xx}&f_{xy}\\
+f_{yx}&f_{yy}
+\end{array}\bigg)>0
+\end{align*}
+\hfill\dotfill 10分\\
+上式对任何单位向量$(\cos\alpha,\sin\alpha)$成立，故$H_f(0,0)$是一个正定矩阵，而$f(0,0)$是$f(x,y)$的极小值。
+
+\hfill\dotfill 14分
+
+\newpage
+
+\ws { \textbf{解答题}}{( \textbf{本题满分14分})\\}\\\\
+设曲线$\Gamma$为曲线
+\[x^2+y^2+z^2=1,x+z=1,x\geqslant0,y\geqslant0,z\geqslant0\]
+上从点$A(1,0,0)$到点$B(0,0,1)$的一段，求曲线积分$I=\displaystyle\upint_{\Gamma}y\mathrm{d}x+z\mathrm{d}y+x\mathrm{d}z.$
+
+【解析】记$\Gamma_1$为从$B$到$A$的直线段，则$x=t,y=0,z=1-t,0\leqslant t\leqslant 1,$
+\[\upint_{\Gamma_1}y\mathrm{d}x+z\mathrm{d}y+x\mathrm{d}z=\upint_0^1t\mathrm{d}(1-t)=-\zfrac{1}{2}.\]
+\hfill\dotfill 4分
+
+设$\Gamma$和$\Gamma_1$围成的平面区域$\sum$，方向按右手法则。由Stokes公式得到
+\begin{align*}
+\Big(\upint_{\Gamma}+\upint_{\Gamma_1}\Big)y\mathrm{d}x+z\mathrm{d}y+x\mathrm{d}z
+&=\upiint_{\sum}
+\begin{vmatrix}
+\mathrm{d}y\mathrm{d}z&\mathrm{d}z\mathrm{d}x&\mathrm{d}x\mathrm{d}y\\
+\zfrac{\partial}{\partial x}&\zfrac{\partial}{\partial y}&\zfrac{\partial}{\partial z}\\
+y&z&x
+\end{vmatrix}
+\\
+&=-\upiint_{\sum}\mathrm{d}y\mathrm{d}z+\mathrm{d}z\mathrm{d}x+\mathrm{d}x\mathrm{d}y.
+\end{align*}
+\hfill\dotfill 8分\\
+右边三个积分都是$\sum$在各个坐标面上的投影面积，而$\sum$在$xOz$面上的投影面积为零。故
+\[I+\upint_{\Gamma_1}=-\upiint_{\sum}\mathrm{d}y\mathrm{d}z+\mathrm{d}x\mathrm{d}y.\]
+曲线$\Gamma$在$xOy$面上投影的方程为$\zfrac{\Big(x-\zfrac{1}{2}\Big)^2}{\Big(\zfrac{1}{2}\Big)^2}+\zfrac{y^2}{\Big(\zfrac{1}{\sqrt{2}}\Big)^2}=1.$
+\hfill\dotfill 12分\\
+又该投影（半个椭圆）的面积为$\upiint_{\sum}\mathrm{d}x\mathrm{d}y=\zfrac{\pi}{4\sqrt{2}},$同理$\upiint_{\sum}\mathrm{d}y\mathrm{d}z=\zfrac{\pi}{4\sqrt{2}}.$
+
+所以
+\[I=\zfrac{1}{2}-\zfrac{\pi}{2\sqrt{2}}.\]
+\hfill\dotfill 14分
+
+ 
+ 
+\newpage
+\ws {\textbf{解答题}}{(\textbf{ 本题满分15分})\\}\\\\
+设函数$f(x)>0$且在实轴上连续，若对任意实数$t$，有
+\[\upint_{-\infty}^{+\infty}\mathrm{e}^{-|t-x|}f(x)\mathrm{d}x\leqslant 1,\]
+证明：$\forall a,b,a<b$，有
+\[\upint_a^bf(x)\mathrm{d}x\leqslant\zfrac{b-a+2}{2}.\]
+
+【证明】由于$\forall a,b,a<b$，有$\upint_{a}^{+b}\mathrm{e}^{-|t-x|}f(x)\mathrm{d}x\leqslant\upint_{-\infty}^{+\infty}\mathrm{e}^{-|t-x|}f(x)\mathrm{d}x\leqslant 1,$
+
+因此
+\[\upint_a^b\mathrm{d}t\upint_a^b\mathrm{e}^{-|t-x|}f(x)\mathrm{d}x\leqslant b-a.\]
+\hfill\dotfill 4分\\
+然而
+\[\upint_a^b\mathrm{d}t\upint_a^b\mathrm{e}^{-|t-x|}f(x)\mathrm{d}x=\upint_a^bf(x)\Big(\upint_a^b\mathrm{e}^{-|t-x|}\mathrm{d}t\Big)\mathrm{d}x,\]
+其中
+\[\upint_a^b\mathrm{e}^{-|t-x|}\mathrm{d}t=\upint_a^x\mathrm{e}^{t-x}\mathrm{d}t+\upint_x^b\mathrm{e}^{x-t}=2-\mathrm{e}^{a-x}-\mathrm{e}^{x-b}.\]
+这样就有
+\[
+\upint_a^bf(x)(2-\mathrm{e}^{a-x}-\mathrm{e}^{x-b})\mathrm{d}x\leqslant b-a.\eqno{(*)}
+\]
+\hfill\dotfill 10分\\
+即
+\[\upint_a^bf(x)\mathrm{d}x\leqslant\zfrac{b-a}{2}+\zfrac{1}{2}\Big[\upint_a^b\mathrm{e}^{a-x}f(x)\mathrm{d}x+\upint_a^b\mathrm{e}^{x-b}f(x)\mathrm{d}x\Big].\]
+注意到
+\[\upint_a^b\mathrm{e}^{a-x}f(x)\mathrm{d}x=\upint_a^b\mathrm{e}^{-|a-x|}f(x)\mathrm{d}x\leqslant 1\textbf{,}\upint_a^b\mathrm{e}^{x-b}f(x)\mathrm{d}x\leqslant 1.\]
+\hfill\dotfill 13分\\
+把以上两个式子代入（$*$），即得结论。
+
+\hfill\dotfill 15分
+
+\mbox{}
+
+%试卷正文结束
+\end{document}
