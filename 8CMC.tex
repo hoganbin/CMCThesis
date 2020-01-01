@@ -9,8 +9,6 @@
 \usepackage{times}%time字体宏包
 \setmainfont{Times New Roman}%新罗马字体
 
-%=====中文字体设置=====%
-%\usepackage{xeCJK}%用 XeLaTeX 时,ctexart 会调 xeCJK；用 (pdf)LaTeX 时，它会调 CJK。不需要手工再调用。
 \newcommand{\zhongsong}{\CJKfontspec{方正中宋简体}}%方正中宋
 \setCJKfamilyfont{huawenxingkai}{华文行楷} \newcommand*{\xingkai}{\CJKfamily{huawenxingkai}}%华文行楷
 \usepackage{zref-user,zref-lastpage}%使用zref宏包,引用数字标签值和LastPage标签
@@ -32,7 +30,7 @@
 	\begin{center}
 		{\zihao{-2}\xingkai 第八届中国大学生数学竞赛决赛试题}\\[1.5mm]
 		{\zihao{4} (数学类，2017年3月18日)}\\[2mm]
-		 \zihao{4}(16数学$-$胡八一)\\[3mm]
+		 \zihao{4}(16 数学$-$胡八一)\\[3mm]
 		{\zihao{4}考试形式:\underline{\;闭卷\;}\quad\, 考试时间:\underline{\;\;\,180\;\;\,}分钟   \quad\, 满分:\underline{\;\;\,100\;\;\,}分}
 	\end{center}
 	\vspace*{-7mm}\rule{\textwidth}{0.1pt}%分隔线
@@ -65,9 +63,8 @@
 		它交抛物面 $\Gamma$ 与曲线 $C$. 问: $C$ 是何种类型的曲线 ? 证明你的结论.
 		
 \item[{ \textbf{三、证明题}}] \hspace{2.5mm}{\textbf{(本题 15 分)}} 设 $n$ 阶方阵 $\text{\textbf{\textit{A}}}$, $\text{\textbf{\textit{B}}}$ 满足:  秩 $(\text{\textbf{\textit{ABA}}})=$ 秩 $(\text{\textbf{\textit{B}}})$. 证明:  $\text{\textbf{\textit{AB}}}$ 与 $\text{\textbf{\textit{BA}}}$ 相似.
-\item[{ \textbf{四、}}] {\textbf{(本题 20 分)}} 对 $\mathbb{R}$ 上无穷次可微的 (复值) 函数 $\varphi(x)$, 称 $\varphi(x)\in\mathscr{S}$, 如果 $\forall m,k\geqslant0$ \\[1mm]
-		成立 $\sup_{x\in\mathbb{R}}\left|x^m\varphi^{(k)}(x)\right|<+\infty$. 若 $f\in\mathscr{S}$, 可定义 $\hat{f}(x):=\int_{\mathbb{R}}\hat{f}(y)e^{-2\pi ixy}\,\mathrm{d}y,\quad (\forall x\in\mathbb{R}).$ \\[1mm]
-		证明: $\hat{f}(x)\in\mathscr{S}$, 且 \[f(x)=\int_{\mathbb{R}}\hat{f}(y)e^{2\pi ixy}\,\mathrm{d}y,\quad \forall x\in\mathbb{R}\]
+\item[{ \textbf{四、}}] {\textbf{(本题 20 分)}} 对 $\mathbb{R}$ 上无穷次可微的 (复值) 函数 $\varphi(x)$, 称 $\varphi(x)\in\mathscr{S}$, 如果 $\forall m,k\geqslant0$ 成立 $\sup_{x\in\mathbb{R}}\left|x^m\varphi^{(k)}(x)\right|<+\infty$. 若 $f\in\mathscr{S}$, 可定义 $\hat{f}(x):=\int_{\mathbb{R}}\hat{f}(y)e^{-2\pi ixy}\,\mathrm{d}y,\quad (\forall x\in\mathbb{R}).$ 
+	证明: $\hat{f}(x)\in\mathscr{S}$, 且 \[f(x)=\int_{\mathbb{R}}\hat{f}(y)e^{2\pi ixy}\,\mathrm{d}y,\quad \forall x\in\mathbb{R}\]
 \item[{\textbf{五、}}] {\textbf{(本题 15 分)}} 设 $n>1$ 为正整数. 令 \[S_n=\left(\frac{1}{n}\right)^n+\left(\frac{2}{n}\right)^n+\cdots+\left(\frac{n-1}{n}\right)^n\]
 		\begin{enumerate}[label={\arabic*.},labelsep=-1.7em,leftmargin=1.0em,align=left]
 			\item 证明：数列 $S_n$ 单调增且有界, 从而极限 $\lim_{n\to\infty}S_n$ 存在.

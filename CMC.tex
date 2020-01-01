@@ -1,0 +1,146 @@
+\usepackage{mtpro2}
+\usepackage{CJKnumb}
+\usepackage{amsmath,amssymb}
+\usepackage{calc}
+\usepackage{intcalc}
+\usepackage{ifthen}
+\usepackage{zref-user}
+\usepackage{zref-lastpage}
+\usepackage{makecell}
+\usepackage{interfaces-makecell}
+\usepackage{dashrule}
+\usepackage{parskip}
+\usepackage[paperwidth=195mm,paperheight=270mm,left=30mm,right=25mm,top=20mm,bottom=20mm,includefoot]{geometry}
+\usepackage{enumerate}
+\usepackage{fancyhdr}
+\usepackage{tcolorbox}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+%用到的长度变量
+\newlength{\wot}
+\newlength{\wol}
+\newlength{\gmw}
+\newlength{\dl}
+
+%长度变量的初始值
+\settowidth{\wot}{复核人}
+\setlength{\wol}{0.3pt}
+\setlength{\gmw}{6em}
+\setlength{\dl}{10em}
+
+%页眉设置开始
+\renewcommand{\headrulewidth}{0pt}
+
+%装订线开始
+\fancyheadoffset[OL,ER]{\gmw}
+\fancyhead[OL]{
+	\ifnum\intcalcMod{\value{page}}{4}=1
+	\rotatebox{90}
+	{\begin{minipage}{1.1\textheight}
+			\begin{center}
+				省市：\rule[-.2ex]{\dl}{\wol} 学校：\rule[-.2ex]{\dl}{\wol}  姓名：\rule[-.2ex]{\dl}{\wol} 准考证号：\rule[-.2ex]{\dl}{\wol}\\
+				\tiny \hdashrule[-3ex]{\textheight}{\wol}{3pt}\\[\smallskipamount]
+				\makebox[0.6\textheight][s]{装订线内不要答题}\\[-3\smallskipamount]
+				\hdashrule[-3ex]{\textheight}{\wol}{3pt}
+			\end{center}
+	\end{minipage} }
+	\fi
+}
+\fancyhead[ER]{
+	\ifnum\intcalcMod{\value{page}}{4}=0
+	\rotatebox{-90}
+	{\begin{minipage}{1.1\textheight}
+			\begin{center}
+				\tiny \hdashrule[-3ex]{\textheight}{\wol}{3pt}\\[\smallskipamount]
+				\makebox[0.6\textheight][s]{装订线内不要答题}\\[-3\smallskipamount]
+				\hdashrule[-3ex]{\textheight}{\wol}{3pt}
+			\end{center}
+	\end{minipage} }
+	\fi
+}
+%装订线结束
+%页眉设置结束
+%页脚设置开始
+\renewcommand{\footrulewidth}{\wol}
+\fancyfoot[C]{\heiti 微信公众号：八一考研数学竞赛\quad 第{\bf\thepage} 页 （共~{\bf\pageref{LastPage}}~页）}
+%\fancyfoot[C]{\large{{ \textbf{微信公众号之八一考研数学竞赛}}\qquad 共\zpageref{LastPage}页\quad 第\thepage 页}}
+\newcounter{ns}
+\newcounter{ts}
+\newcounter{nq}
+\newcommand{\wns}{\stepcounter{ns}\CJKnumber{\thens}、}
+\newcommand{\wq}{\stepcounter{nq}\thenq.}
+
+%大题前计分表格
+\newcommand{\tbs}{\begin{tabular}{|c|c|c|}\hline \makebox[\wot]{得分}&\makebox[\wot]{评卷人}&\makebox[\wot]{复核人}\\ \hline
+		& &\\ \hline\end{tabular}}
+
+%排版大题前计分表格,序号,题型,大题说明
+\newcommand{\ws}[2]{\raisebox{-1ex}{\begin{minipage}[b]{4.6\wot}\tbs\end{minipage}}
+	\begin{minipage}[t]{\textwidth-6\wot} {\heiti \wns #1 } #2 \end{minipage} }
+\makeatletter
+\zref@newprop{totalsections}[3]{\arabic{ns}}
+\zref@addprop{LastPage}{totalsections}
+\AtBeginDocument{
+	\setcounter{ts}{\zref@extractdefault{LastPage}{totalsections}{3}} }
+\makeatother
+\linespread{1.618}
+\newcommand{\D}{\,\mathrm{d}}
+\newcommand{\E}{\mathrm{e}}
+\newcommand{\dlim}{\displaystyle \lim }
+\newcommand{\dint}{\displaystyle \int }
+\newcommand{\sets}[1]{\{ #1 \}}
+
+\setCJKfamilyfont{huawenxingkai}{华文行楷} \newcommand*{\xingkai}{\CJKfamily{huawenxingkai}}%华文行楷
+\newcommand{\dis}{\displaystyle}
+\newcommand{\Rank}{\mathrm{Rank}\mspace{1mu}}
+\newcommand{\Sign}{\mathrm{Sign}\mspace{1mu}}
+\newcommand{\rd}{\mspace{1mu}\mathrm{d}}
+\newcommand{\diag}{\mathrm{diag}\mspace{1mu}}
+\newcommand{\tr}{\mathrm{tr}\mspace{1mu}}
+\newcommand{\var}{\mathrm{var}}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+
+%直立积分号，需要mathabx宏包
+\makeatletter
+\def\upintkern@{\mkern-7mu\mathchoice{\mkern-2mu}{}{}{}}
+\def\upintdots@{\mathchoice{\mkern-4mu\@cdots\mkern-4mu}%
+	{{\cdotp}\mkern1.5mu{\cdotp}\mkern1.5mu{\cdotp}}%
+	{{\cdotp}\mkern1mu{\cdotp}\mkern1mu{\cdotp}}%
+	{{\cdotp}\mkern1mu{\cdotp}\mkern1mu{\cdotp}}}
+\newcommand{\upiint}{\DOTSI\protect\UpMultiIntegral{2}}
+\newcommand{\upiiint}{\DOTSI\protect\UpMultiIntegral{3}}
+\newcommand{\upiiiint}{\DOTSI\protect\UpMultiIntegral{4}}
+\newcommand{\upidotsint}{\DOTSI\protect\UpMultiIntegral{0}}
+\newcommand{\UpMultiIntegral}[1]{%
+	\edef\ints@c{\noexpand\upintop
+		\ifnum#1=\z@\noexpand\upintdots@\else\noexpand\upintkern@\fi
+		\ifnum#1>\tw@\noexpand\upintop\noexpand\upintkern@\fi
+		\ifnum#1>\thr@@\noexpand\upintop\noexpand\upintkern@\fi
+		\noexpand\upintop
+		\noexpand\ilimits@
+	}%
+	\futurelet\@let@token\ints@a
+}
+\makeatother
+
+\DeclareFontFamily{U}{mathx}{\hyphenchar\font45}
+\DeclareFontShape{U}{mathx}{m}{n}{
+	<->s * [0.8]
+	mathx10
+}{}
+\DeclareSymbolFont{mathx}{U}{mathx}{m}{n}
+\DeclareFontSubstitution{U}{mathx}{m}{n}
+\DeclareMathSymbol{\upintop}{\mathop}{mathx}{'273}
+%\DeclareMathSymbol{\upiint}{\mathop}{mathx}{'274}
+%\DeclareMathSymbol{\upiiint}{\mathop}{mathx}{'275}
+\DeclareMathSymbol{\upointop}{\mathop}{mathx}{'276}
+\DeclareMathSymbol{\upoiint}{\mathop}{mathx}{'277}
+\makeatletter
+\newcommand{\upint}{\DOTSI\upintop\ilimits@}
+\newcommand{\upoint}{\DOTSI\upointop\ilimits@}
+
+%分数线延长mdugm
+\newcommand{\zfrac}[2]{\dfrac{{\raisebox{-0.7mm}{$#1$}}}{\;{\raisebox{0.2mm}{$#2$}}\;}}
+\newcommand{\bfrac}[2]{\dfrac{{\raisebox{-0.7mm}{$#1$}}}{{\raisebox{0.2mm}{$#2$}}}}
