@@ -7,6 +7,7 @@
 %%%%%%%%%%%%%%%%%%%%%
 % % !Mode:: "TeX:UTF-8"
 % !TeX root = CMC.tex
+
 \NeedsTeXFormat{LaTeX2e}
 \RequirePackage[l2tabu,orthodox]{nag}
 \RequirePackage{expl3,xparse,xtemplate,l3keys2e}
