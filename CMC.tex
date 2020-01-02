@@ -1,11 +1,9 @@
-% !TeX document-id = {a9da8c09-8ca2-42d8-97aa-816e53d9f143}
-% !TeX TXS-program:compile = txs:///latexmk/{}[-xelatex -synctex=1 -interaction=nonstopmode -silent %.tex]
-
 \documentclass[hideanswer=false,
 enfont=newtxtext,
 zhfont=empty,
 mathfont=newtxmath,
-]{CMCThesis}
+]{cmcthesis}
+%定义solution环境
 
 % 是否隐藏答案， hideanswer = false,true
 % 英文字体选择， enfont     = newtxtext,noto,empty
@@ -15,7 +13,6 @@ mathfont=newtxmath,
 % 以上选项可以全部留空，调用默认的配置
 % noto 无论英文还是中文字体比较全，如果启用它，记得要把字体放在 fonts/ 下面
 % origin 是八一的配置方案，开启它就是之前的设置，字体可以安装使用，或者放在当前文件夹或者 fonts/ 下面使用
-
 % newtxtext 和 newtxmath 配
 % noto(enfont) 和 zhnoto(zhfont) 配
 %\setmainfont{Times New Roman}
@@ -25,19 +22,19 @@ mathfont=newtxmath,
 %BoldFont     = XITSMath-Bold ,
 %StylisticSet = 8]{XITSMath-Regular}% only when mathfont=unicode-math,具体字体可以自己选择
 
-\CMCThesissetup{% key = value 设置处
+\cmcthesissetup{% key = value 设置处
 	%
 }
 \input{settings.tex}
 \begin{document}
-	\CMCThesistitle{
+	\cmcthesistitle{
 		date= 2018年10月27号 \thinspace 9:00 - 11:30  ,
 	}
 
 \addvspace{1\bigskipamount}
 
 \ws{\textbf{填空题}}{( \textbf{本题满分24分，每题6分})\\}\\\\
-\wq 设 $\alpha\in\left(0,1\right)$，则$ \lim_{n\rightarrow +\infty}\left(\left(n+1\right)^{\alpha}-n^{\alpha}\right)=$\underline{\hspace{3em}}.\\
+\wq 设 $\alpha\in\left(0,1\right),\textrm{则} \lim_{n\rightarrow +\infty}\left(\left(n+1\right)^{\alpha}-n^{\alpha}\right)=$\underline{\hspace{3em}}.\\
 	\begin{answer}
 	\begin{solution}
 等价无穷小$\left(1+x\right)^{\alpha}-1\backsim\alpha x$，得
@@ -78,12 +75,13 @@ e^y+ty+\sin t=1\\
 
 \wq $\lim_{x\rightarrow 0}\frac{1-\cos x\sqrt{\cos 2x}\sqrt[3]{\cos 3x}}{x^2}=$\underline{\hspace{3em}}.\\
 	\begin{answer}
-	\begin{solution} 由$\cos x= 1-\frac{x^2}{2}+o(x^2),\sqrt{1+z}=1+\frac{z}{2}+o(z)$，即
-		\[\sqrt{\cos 2x}= 1-x^2+o(x^2),\quad \sqrt[3]{\cos 3x}= 1-\frac{3x^2}{2}+o(x^2),\quad \sqrt[3]{1+z}=1+\frac{z}{3}+o(z)\]
-		即
-		\[
-		\text{原式}=\lim_{x\rightarrow 0}\frac{1-\left(1-\frac{x^2}{2}+o\left(x^2\right)\right)\left(1-x^2+o\left(x^2\right)\right)\left(1-\frac{3x^2}{2}+o\left(x^2\right)\right)}{x^2}=3
-		\]
+	\begin{solution}
+由$\cos x= 1-\frac{x^2}{2}+o(x^2),\sqrt{1+z}=1+\frac{z}{2}+o(z)$，即
+\[\sqrt{\cos 2x}= 1-x^2+o(x^2),\quad \sqrt[3]{\cos 3x}= 1-\frac{3x^2}{2}+o(x^2),\quad \sqrt[3]{1+z}=1+\frac{z}{3}+o(z)\]
+即
+\[
+\text{原式}=\lim_{x\rightarrow 0}\frac{1-\left(1-\frac{x^2}{2}+o\left(x^2\right)\right)\left(1-x^2+o\left(x^2\right)\right)\left(1-\frac{3x^2}{2}+o\left(x^2\right)\right)}{x^2}=3
+\]
 这题方法除泰勒之外，还可简单的等价无穷小，或拆项，洛必达处理
 \begin{align*}
 \lim_{x\rightarrow 0}\frac{1-\cos x\sqrt{\cos 2x}\sqrt[3]{\cos 3x}}{x^2}&=\lim_{x\rightarrow 0}\left(\frac{1-\cos x}{x^2}+\frac{\cos x\left(1-\sqrt{\cos 2x}\sqrt[3]{\cos 3x}\right)}{x^2}\right)\\

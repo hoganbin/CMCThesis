@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%
-%% start of file `CMCThesis.cls`.
+%% start of file `cmcthesis.cls`.
 %% Copyright 2020-2021 hoganbin (八一) and  Camuse (酸奶)
 %%
 %% This work may be distributed and/or modified freely
@@ -7,19 +7,18 @@
 %%%%%%%%%%%%%%%%%%%%%
 % % !Mode:: "TeX:UTF-8"
 % !TeX root = CMC.tex
-
 \NeedsTeXFormat{LaTeX2e}
 \RequirePackage[l2tabu,orthodox]{nag}
 \RequirePackage{expl3,xparse,xtemplate,l3keys2e}
 \ExplSyntaxOn
-\ProvidesClass{CMCThesis}
+\ProvidesClass{cmcthesis}
 \newif\ifennoto\ennotofalse
 \newif\ifzhnoto\zhnotofalse
 \newif\ifzhorigin\zhoriginfalse
 \newif\ifmathfree\mathfreefalse
 \newif\ifnewtxmath\newtxmathfalse
 
-\keys_define:nn {CMCThesis} {
+\keys_define:nn {cmcthesis} {
 	hideanswer         .choice:           					,
 	hideanswer         .default:n = false 					,
 	hideanswer / false .code:n    = \newif\ifcomm\commfalse ,
@@ -52,7 +51,7 @@
 	mathfont / unicode-math .code:n    = \mathfreetrue       ,
 }
 
-\ProcessKeysOptions {CMCThesis}
+\ProcessKeysOptions {cmcthesis}
 \LoadClass [11pt, ] {ctexart} %twoside
 
 \ifnewtxmath
@@ -440,22 +439,22 @@ BoldItalicFeatures = FakeSlant] {NotoSansMonoCJKsc}
 
 % cover
 %\ExplSyntaxOn
-\tl_new:N \l__CMCThesis_title_date_tl
-\tl_new:N \l__CMCThesis_title_name_tl
-%\tl_new:N \l__CMCThesis_title_number_tl
-\tl_new:N \l__CMCThesis_title_motto_tl
-\keys_define:nn { CMCThesis }
+\tl_new:N \l__cmcthesis_title_date_tl
+\tl_new:N \l__cmcthesis_title_name_tl
+%\tl_new:N \l__cmcthesis_title_number_tl
+\tl_new:N \l__cmcthesis_title_motto_tl
+\keys_define:nn { cmcthesis }
 {
-	date   .tl_set:N = \l__CMCThesis_title_date_tl   ,
-	name   .tl_set:N = \l__CMCThesis_title_name_tl   ,
-%	number .tl_set:N = \l__CMCThesis_title_number_tl ,
-	motto  .tl_set:N = \l__CMCThesis_title_motto_tl  ,
+	date   .tl_set:N = \l__cmcthesis_title_date_tl   ,
+	name   .tl_set:N = \l__cmcthesis_title_name_tl   ,
+%	number .tl_set:N = \l__cmcthesis_title_number_tl ,
+	motto  .tl_set:N = \l__cmcthesis_title_motto_tl  ,
 }
 %art
-\DeclareDocumentCommand \CMCThesistitle { m }
+\DeclareDocumentCommand \cmcthesistitle { m }
 {
 	\group_begin:
-	\keys_set:nn { CMCThesis } { #1 }{
+	\keys_set:nn { cmcthesis } { #1 }{
 		{\noindent\sffamily 
 			{
 				{
@@ -463,7 +462,7 @@ BoldItalicFeatures = FakeSlant] {NotoSansMonoCJKsc}
 				} 
 				\hfill 
 				{
-					\heiti \l__CMCThesis_title_motto_tl
+					\heiti \l__cmcthesis_title_motto_tl
 %				\tikz\node{};
 					%\includegraphics[width=0.05\textwidth]{logo.pdf}
 				}
@@ -472,16 +471,16 @@ BoldItalicFeatures = FakeSlant] {NotoSansMonoCJKsc}
 		\ifzhorigin
 		\begin{center}
 			{\xingkai  \zihao{3}第十届全国大学生数学竞赛\LaTeX 模板 }\\
-%			{\zihao{-3}\heiti\l__CMCThesis_title_name_tl\thinspace{\thinspace \bf\uppercase\expandafter\thinspace} 
-			{\zihao{-3}\heiti 数学类\thinspace \ifcomm\else 答案\fi}\\
-			\zihao{-3}\l__CMCThesis_title_date_tl\\
+%			{\zihao{-3}\heiti\l__cmcthesis_title_name_tl\thinspace{\thinspace \bf\uppercase\expandafter\thinspace} 
+		{\zihao{-3}\heiti 数学类\thinspace \ifcomm\else 答案\fi}\\
+			\zihao{-3}\l__cmcthesis_title_date_tl\\
 		\end{center}
 		\else
 		\begin{center}
 			{\bfseries\zihao{3}第十届全国大学生数学竞赛\LaTeX 模板}\\
-%			{\zihao{-3}\bfseries\l__CMCThesis_title_name_tl\thinspace{\thinspace \bfseries\uppercase\expandafter\thinspace} 
+%			{\zihao{-3}\bfseries\l__cmcthesis_title_name_tl\thinspace{\thinspace \bfseries\uppercase\expandafter\thinspace} 
 			{\zihao{-3}\heiti 非数学类\ifcomm\else 答案\fi}\\
-			{\zihao{-3}\l__CMCThesis_title_date_tl}\\
+			{\zihao{-3}\l__cmcthesis_title_date_tl}\\
 		\end{center}
 		\begin{center}
 			{考试形式：\underline{~闭卷~}~\hspace{2mm}考试时间：\underline{~~150~~}分钟~\hspace{2mm}满分：~\underline{~~100~~}~分}\\
@@ -524,7 +523,7 @@ BoldItalicFeatures = FakeSlant] {NotoSansMonoCJKsc}
 	}
 	\group_end:
 }
-\keys_set:nn { CMCThesis} { 
+\keys_set:nn { cmcthesis} { 
 	date   = 2018       ,
 	name   = ,
 %	number = 1          ,
@@ -536,10 +535,10 @@ BoldItalicFeatures = FakeSlant] {NotoSansMonoCJKsc}
 \NewDocumentEnvironment {answer} { } {\par\ifcomm\comment\fi}{\ifcomm\endcomment\fi\par}
 
 
-\DeclareDocumentCommand \CMCThesissetup{ m }
+\DeclareDocumentCommand \cmcthesissetup{ m }
 {
 	\group_begin:
-	\keys_set:nn {CMCThesis} { #1 }{
+	\keys_set:nn {cmcthesis} { #1 }{
 	}
 	\group_end:
 }
