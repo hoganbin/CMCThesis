@@ -1,39 +1,26 @@
 \documentclass[hideanswer=false,
-enfont=newtxtext,
-zhfont=empty,
-mathfont=newtxmath,
+	enfont=newtxtext,
+	zhfont=empty,
+	mathfont=newtxmath,
 ]{cmcthesis}
-%定义solution环境
-
-% 是否隐藏答案， hideanswer = false,true
-% 英文字体选择， enfont     = newtxtext,noto,empty
-% 中文字体设置,  zhfont     = zhnoto,origin,empty
-% 数学字体设置， mathfont   = newtxmath,unicode-math,mtpro2,empty
-% 选择了 empty 方案的可以使用通用的方法自行设置
-% 以上选项可以全部留空，调用默认的配置
-% noto 无论英文还是中文字体比较全，如果启用它，记得要把字体放在 fonts/ 下面
-% origin 是八一的配置方案，开启它就是之前的设置，字体可以安装使用，或者放在当前文件夹或者 fonts/ 下面使用
-% newtxtext 和 newtxmath 配
-% noto(enfont) 和 zhnoto(zhfont) 配
-%\setmainfont{Times New Roman}
-%\setmathfont[
-%Extension    = .otf          ,
-%Path         = fonts/        ,
-%BoldFont     = XITSMath-Bold ,
-%StylisticSet = 8]{XITSMath-Regular}% only when mathfont=unicode-math,具体字体可以自己选择
 
 \cmcthesissetup{% key = value 设置处
 	%
 }
-\input{settings.tex}
+\input{settings.tex} 
+
 \begin{document}
 	\cmcthesistitle{
-		date= 2018年10月27号 \thinspace 9:00 - 11:30  ,
+		name    = 第十届全国大学生数学竞赛\LaTeX 模板 ,
+		subname = 非数类参考解析,
+		date    = 2018年10月27号 \thinspace 9:00 - 11:30  ,
+		author  = 作者：八一 ,
+		motto   = 微信公众号：八一考研数学竞赛 ,
 	}
 
 \addvspace{1\bigskipamount}
 
-\ws{\textbf{填空题}}{( \textbf{本题满分24分，每题6分})\\}\\\\
+\ws{填空题}{( \textbf{本题满分24分，每题6分})\\}\\\\
 \wq 设 $\alpha\in\left(0,1\right),\textrm{则} \lim_{n\rightarrow +\infty}\left(\left(n+1\right)^{\alpha}-n^{\alpha}\right)=$\underline{\hspace{3em}}.\\
 	\begin{answer}
 	\begin{solution}
@@ -93,7 +80,7 @@ e^y+ty+\sin t=1\\
 \end{align*}
 	\end{solution}
 	\end{answer}
-\ws { \textbf{解答题}}{(\textbf{ 本题满分8分})\\}\\\\
+\ws {解答题}{(\textbf{ 本题满分8分})\\}\\\\
 设函数$f(t)$在$t\ne 0$时一阶连续可导，且$f(1)=0$，求函数$f(x^2-y^2)$，使得曲线积分$\displaystyle \upint_L{y\left(2-f\left(x^2-y^2\right)\right)}\mathrm {d}x+xf\left(x^2-y^2\right)\mathrm{d}y
 $与路径无关，其中$L$为任一不与直线$y=\pm x$相交的分段光滑闭曲线.
 	\begin{answer}
@@ -128,7 +115,7 @@ f\left(x^2-y^2\right)=1-\frac{1}{x^2-y^2}
 
 
 
-\ws {\textbf{解答题}}{(\textbf{本题满分14分})\\}\\\\
+\ws {解答题}{(\textbf{本题满分14分})\\}\\\\
 设$f(x)$在区间$[0,1]$上连续，且$1\leq f\left(x\right)\leq3$.证明：
 \[
 0\leq\upint_0^1{f\left(x\right)\mathrm{d}x\upint_0^1{\frac{1}{f\left(x\right)}\mathrm{d}x\leq\frac{4}{3}}}
@@ -158,7 +145,7 @@ f\left(x\right)+\frac{3}{f\left(x\right)}\le 4\Rightarrow\upint_0^1{\left(f\left
 \hfill\dotfill 14分\\
 	\end{proof}
 	\end{answer}
-\ws { \textbf{解答题}}{( \textbf{本题满分12分})\\}\\\\
+\ws {解答题}{( \textbf{本题满分12分})\\}\\\\
 计算三重积分$ \upiiint_{\left(V\right)}{\left(x^2+y^2\right)}\mathrm{d}V
 $，其中$(V)$是由$x^2+y^2+\left(z-2\right)^2\geq 4$，$x^2+y^2+\left(z-1\right)^2\leq9$及$z\geq0$所围成的空间图形.
 
@@ -209,7 +196,7 @@ x=r\cos\theta ,y=r\sin\theta ,1-\sqrt{9-r^2}\leq z\leq 0\\
 	\end{solution}
 	\end{answer}
 
-\ws {\textbf{解答题}}{(\textbf{ 本题满分14}分)\\}\\\\
+\ws {解答题}{(\textbf{ 本题满分14}分)\\}\\\\
 设$f(x,y)$在区域D内可微，且$\sqrt{\left(\frac{\partial f}{\partial x}\right)^2+\left(\frac{\partial f}{\partial y}\right)^2}\leq M$，$A\left(x_1,y_1\right),B\left(x_2,y_2\right)$是D内两点，线段AB包含在D内，证明：
 \[
 |f\left(x_1,y_1\right)-f\left(x_2,y_2\right)|\leq M|AB|
@@ -243,7 +230,7 @@ x=r\cos\theta ,y=r\sin\theta ,1-\sqrt{9-r^2}\leq z\leq 0\\
 
 
 
-\ws { \textbf{解答题}}{( \textbf{本题满分14分})\\}\\\\
+\ws {解答题}{( \textbf{本题满分14分})\\}\\\\
 证明：对于连续函数$f(x)>0$，有
 \[
 \ln\upint_0^1{f\left(x\right)\mathrm{d}x\geq\upint_0^1{\ln f\left(x\right)\mathrm{d}x}}
@@ -274,7 +261,7 @@ x=r\cos\theta ,y=r\sin\theta ,1-\sqrt{9-r^2}\leq z\leq 0\\
 
 
 
-\ws { \textbf{解答题}}{( \textbf{本题满分14分})\\}\\\\
+\ws {解答题}{(\textbf{本题满分14分})\\}\\\\
 已知${a_k}$，${b_k}$是正数数列，且$b_{k+1}-b_k\geq\delta >0,k=1,2,\cdots $，$\delta$为一切常数，证明：若级数$\sum_{k=1}^{+\infty}{a_k}$收敛，则级数$\sum_{k=1}^{+\infty}{\frac{k\sqrt[k]{\left(a_1a_2\cdots a_k\right)\left(b_1b_2\cdots b_k\right)}}{b_{k+1}b_k}}$收敛.
 	\begin{answer}
 	\begin{proof}

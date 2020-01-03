@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%
 %% start of file `cmcthesis.cls`.
-%% Copyright 2020-2021 hoganbin (八一) and  Camuse (酸奶)
+%% Copyright 2020-2021 Hoganbin (八一) and  Camuse (酸奶)
 %%
 %% This work may be distributed and/or modified freely
 %% Last Modification 2019-08-17
@@ -291,8 +291,11 @@ BoldItalicFeatures = FakeSlant] {NotoSansMonoCJKsc}
 		& &\\ \hline\end{tabular}}
 
 %排版大题前计分表格,序号,题型,大题说明
-\newcommand{\ws}[2]{\raisebox{-1ex}{\begin{minipage}[b]{4.6\wot}\tbs\end{minipage}}
-	\begin{minipage}[t]{\textwidth-6\wot} {\heiti \wns #1 } #2 \end{minipage} }
+\newcommand{\ws}[2]{\raisebox{-1ex}
+	{\begin{minipage}[b]{4.6\wot}\tbs\end{minipage}}
+	\begin{minipage}[t]{\textwidth-6\wot} 
+		{\heiti \wns #1 } #2 \end{minipage}
+}
 \makeatletter
 \zref@newprop{totalsections}[3]{\arabic{ns}}
 \zref@addprop{LastPage}{totalsections}
@@ -308,6 +311,7 @@ BoldItalicFeatures = FakeSlant] {NotoSansMonoCJKsc}
 
 
 \pagestyle{fancy}
+
 %装订线开始
 \fancyheadoffset[OL,ER]{\gmw}
 \fancyhead[OL]{
@@ -441,14 +445,16 @@ BoldItalicFeatures = FakeSlant] {NotoSansMonoCJKsc}
 %\ExplSyntaxOn
 \tl_new:N \l__cmcthesis_title_date_tl
 \tl_new:N \l__cmcthesis_title_name_tl
-%\tl_new:N \l__cmcthesis_title_number_tl
+\tl_new:N \l__cmcthesis_title_subname_tl
+\tl_new:N \l__cmcthesis_title_author_tl
 \tl_new:N \l__cmcthesis_title_motto_tl
 \keys_define:nn { cmcthesis }
 {
-	date   .tl_set:N = \l__cmcthesis_title_date_tl   ,
-	name   .tl_set:N = \l__cmcthesis_title_name_tl   ,
-%	number .tl_set:N = \l__cmcthesis_title_number_tl ,
-	motto  .tl_set:N = \l__cmcthesis_title_motto_tl  ,
+	date    .tl_set:N = \l__cmcthesis_title_date_tl   ,
+	name    .tl_set:N = \l__cmcthesis_title_name_tl   ,
+	subname .tl_set:N = \l__cmcthesis_title_subname_tl   ,
+	author  .tl_set:N = \l__cmcthesis_title_author_tl  ,
+	motto   .tl_set:N = \l__cmcthesis_title_motto_tl  ,
 }
 %art
 \DeclareDocumentCommand \cmcthesistitle { m }
@@ -470,17 +476,19 @@ BoldItalicFeatures = FakeSlant] {NotoSansMonoCJKsc}
 		}\par
 		\ifzhorigin
 		\begin{center}
-			{\xingkai  \zihao{3}第十届全国大学生数学竞赛\LaTeX 模板 }\\
+			{\xingkai  \zihao{3}\l__cmcthesis_title_name_tl }\\
 %			{\zihao{-3}\heiti\l__cmcthesis_title_name_tl\thinspace{\thinspace \bf\uppercase\expandafter\thinspace} 
-		{\zihao{-3}\heiti 数学类\thinspace \ifcomm\else 答案\fi}\\
+		{\zihao{-3}  \heiti  数学类\thinspace \ifcomm\else 答案\fi}\\
 			\zihao{-3}\l__cmcthesis_title_date_tl\\
+			
 		\end{center}
 		\else
 		\begin{center}
-			{\bfseries\zihao{3}第十届全国大学生数学竞赛\LaTeX 模板}\\
+			{\bfseries\zihao{3}\l__cmcthesis_title_name_tl}\\
 %			{\zihao{-3}\bfseries\l__cmcthesis_title_name_tl\thinspace{\thinspace \bfseries\uppercase\expandafter\thinspace} 
-			{\zihao{-3}\heiti 非数学类\ifcomm\else 答案\fi}\\
-			{\zihao{-3}\l__cmcthesis_title_date_tl}\\
+			{\zihao{-3}\heiti \l__cmcthesis_title_subname_tl}\\
+			{\zihao{-4}\l__cmcthesis_title_date_tl}\\
+			{\zihao{-4} \bfseries \l__cmcthesis_title_author_tl}\\
 		\end{center}
 		\begin{center}
 			{考试形式：\underline{~闭卷~}~\hspace{2mm}考试时间：\underline{~~150~~}分钟~\hspace{2mm}满分：~\underline{~~100~~}~分}\\
@@ -493,8 +501,6 @@ BoldItalicFeatures = FakeSlant] {NotoSansMonoCJKsc}
 			\setcounter{tc}{\value{ts}+3}
 			\setcounter{tcsr}{\value{tc}-1}
 			\arrayrulewidth=2\wol 
-			
-			\vspace*{1mm}
 		\begin{tabular}{|m{3em}<{\centering}|*{11}{m{2.95em}<{\centering}|}}\hline
 			题~号 & 一 & 二 & 三  & 四 & 五 &六 &七  &总~~分 \\\hline
 			满~分 & 24 & 8 & 14  & 12 & 14  &14 &14 &100    \\\hline
@@ -524,10 +530,13 @@ BoldItalicFeatures = FakeSlant] {NotoSansMonoCJKsc}
 	\group_end:
 }
 \keys_set:nn { cmcthesis} { 
-	date   = 2018       ,
-	name   = ,
+	date    =,
+	name    =,
+	subname =,
+	author  =, 
 %	number = 1          ,
-	motto  = 微信公众号：八一考研数学竞赛}
+%	motto  = 微信公众号：八一考研数学竞赛
+}
 
 
 \NewDocumentEnvironment { material } { O{参考公式} m }
