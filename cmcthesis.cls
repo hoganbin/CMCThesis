@@ -60,7 +60,6 @@
 \fi
 \RequirePackage
 {
-	CJKnumb	       ,
 	enumerate      ,
 	calc           , 
 	intcalc        ,
@@ -75,7 +74,8 @@
 	graphicx       ,
 	paralist       ,
 	enumitem       ,
-	ulem           ,
+% 	ulem           ,
+    xeCJKfntef     ,
 	wrapfig        ,
 	geometry       ,
 	fancyhdr       ,
@@ -281,7 +281,7 @@ BoldItalicFeatures = FakeSlant] {NotoSansMonoCJKsc}
 \newcounter{ns}
 \newcounter{ts}
 \newcounter{nq}
-\newcommand{\wns}{\stepcounter{ns}\CJKnumber{\thens}、}
+\newcommand{\wns}{\stepcounter{ns}\zhnumber{\thens}、}
 \newcommand{\wq}{\stepcounter{nq}\thenq.}
 
 
