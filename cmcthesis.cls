@@ -89,7 +89,7 @@
 	accsupp        ,
 	xcolor         ,
 	tikz           ,
-	interfaces-makecell,	
+	% interfaces-makecell,	
 }
 
 \ifennoto
