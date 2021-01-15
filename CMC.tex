@@ -14,7 +14,7 @@
 		name    = 第十届全国大学生数学竞赛\LaTeX 模板 ,
 		subname = 非数类参考解析,
 		date    = 2018年10月27号 \thinspace 9:00 - 11:30  ,
-		author  = 作者：八一 ,
+		author  = (模板制作者：八一与酸奶) ,
 		motto   = 微信公众号：八一考研数学竞赛 ,
 	}
 
@@ -32,30 +32,30 @@
 	\end{answer}
 \wq $\textrm{若曲线}y=f\left(x\right)\textrm{是由}\left\{\begin{array}{l}
 x=t+\cos t\\
-e^y+ty+\sin t=1\\
+\mathrm{e}^y+ty+\sin t=1\\
 \end{array}\right.\textrm{确定，则此曲线在}t=0$ 对应点处的\\
 切线方程为\underline{\hspace{3em}}.\\
 	\begin{answer}
 	\begin{solution}
 易知$t=0$处上的曲线为点$(1,0)$，即方程组对$t$求导得
-\[
-\frac{\mathrm{d}x}{\mathrm{d}t}=1-\sin t\textbf{，}\frac{\mathrm{d}y}{\mathrm{d}t}=-\frac{y+\cos t}{e^y+t}
-\]
-\[
-\Rightarrow\frac{\mathrm{d}y}{\mathrm{d}t}=\frac{\mathrm{d}y}{\mathrm{d}t}/\frac{\mathrm{d}x}{\mathrm{d}t}=-\frac{y+\cos t}{\left(e^y+1\right)\left(1-\sin t\right)}\Rightarrow\frac{\mathrm{d}y}{\mathrm{d}x}|_{t=0}=-1
-\]
+	\[
+	\frac{\mathrm{d}x}{\mathrm{d}t}=1-\sin t\textbf{，}\frac{\mathrm{d}y}{\mathrm{d}t}=-\frac{y+\cos t}{\mathrm{e}^y+t}
+	\]
+	\[
+	\Rightarrow\frac{\mathrm{d}y}{\mathrm{d}t}=\frac{\mathrm{d}y}{\mathrm{d}t}/\frac{\mathrm{d}x}{\mathrm{d}t}=-\frac{y+\cos t}{\left(\mathrm{e}^y+1\right)\left(1-\sin t\right)}\Rightarrow\left. \frac{\mathrm{d}y}{\mathrm{d}x}\right| _{t=0}=-1
+	\]
 故曲线在$t=0$对应点处的切线方程为$x+y-1=0$.
 	\end{solution}
 	\end{answer}
 
-\wq $\upint{\frac{\ln\left(x+\sqrt{1+x^2}\right)}{\left(1+x^2\right)^{\frac{3}{2}}}}\mathrm{d}x=$\underline{\hspace{3em}}.\\
+\wq $\int{\frac{\ln\left(x+\sqrt{1+x^2}\right)}{\left(1+x^2\right)^{\frac{3}{2}}}}\mathrm{d}x=$\underline{\hspace{3em}}.\\
 	\begin{answer}
 	\begin{solution}
 简单的凑微分，如下
 \begin{align*}
-\upint{\frac{\ln\left(x+\sqrt{1+x^2}\right)}{\left(1+x^2\right)^{\frac{3}{2}}}}\mathrm{d}x&=\upint{\ln\left(x+\sqrt{1+x^2}\right)}\mathrm{d}\left(\frac{x}{\sqrt{1+x^2}}\right)\\
-&=\frac{x}{\sqrt{1+x^2}}\ln\left(x+\sqrt{1+x^2}\right)-\upint{\frac{x}{1+x^2}\mathrm{d}x}\\
-&=\frac{x}{\sqrt{1+x^2}}\ln\left(x+\sqrt{1+x^2}\right)-\frac{1}{2}\ln\left(1+x^2\right)+C
+	\int{\frac{\ln\left(x+\sqrt{1+x^2}\right)}{\left(1+x^2\right)^{\frac{3}{2}}}}\mathrm{d}x&=\int{\ln\left(x+\sqrt{1+x^2}\right)}\mathrm{d}\left(\frac{x}{\sqrt{1+x^2}}\right)\\
+	&=\frac{x}{\sqrt{1+x^2}}\ln\left(x+\sqrt{1+x^2}\right)-\int{\frac{x}{1+x^2}\mathrm{d}x}\\
+	&=\frac{x}{\sqrt{1+x^2}}\ln\left(x+\sqrt{1+x^2}\right)-\frac{1}{2}\ln\left(1+x^2\right)+C
 \end{align*}
 	\end{solution}
 	\end{answer}
@@ -63,25 +63,25 @@ e^y+ty+\sin t=1\\
 \wq $\lim_{x\rightarrow 0}\frac{1-\cos x\sqrt{\cos 2x}\sqrt[3]{\cos 3x}}{x^2}=$\underline{\hspace{3em}}.\\
 	\begin{answer}
 	\begin{solution}
-由$\cos x= 1-\frac{x^2}{2}+o(x^2),\sqrt{1+z}=1+\frac{z}{2}+o(z)$，即
-\[\sqrt{\cos 2x}= 1-x^2+o(x^2),\quad \sqrt[3]{\cos 3x}= 1-\frac{3x^2}{2}+o(x^2),\quad \sqrt[3]{1+z}=1+\frac{z}{3}+o(z)\]
+	由$\cos x= 1-\frac{x^2}{2}+o(x^2),\sqrt{1+z}=1+\frac{z}{2}+o(z)$，即
+	\[\sqrt{\cos 2x}= 1-x^2+o(x^2),\quad \sqrt[3]{\cos 3x}= 1-\frac{3x^2}{2}+o(x^2),\quad \sqrt[3]{1+z}=1+\frac{z}{3}+o(z)\]
 即
-\[
-\text{原式}=\lim_{x\rightarrow 0}\frac{1-\left(1-\frac{x^2}{2}+o\left(x^2\right)\right)\left(1-x^2+o\left(x^2\right)\right)\left(1-\frac{3x^2}{2}+o\left(x^2\right)\right)}{x^2}=3
-\]
+	\[
+	\text{原式}=\lim_{x\rightarrow 0}\frac{1-\left(1-\frac{x^2}{2}+o\left(x^2\right)\right)\left(1-x^2+o\left(x^2\right)\right)\left(1-\frac{3x^2}{2}+o\left(x^2\right)\right)}{x^2}=3
+	\]
 这题方法除泰勒之外，还可简单的等价无穷小，或拆项，洛必达处理
 \begin{align*}
-\lim_{x\rightarrow 0}\frac{1-\cos x\sqrt{\cos 2x}\sqrt[3]{\cos 3x}}{x^2}&=\lim_{x\rightarrow 0}\left(\frac{1-\cos x}{x^2}+\frac{\cos x\left(1-\sqrt{\cos 2x}\sqrt[3]{\cos 3x}\right)}{x^2}\right)\\
-&=\frac{1}{2}+\lim_{x\rightarrow 0}\frac{1-\sqrt{\cos 2x}\sqrt[3]{\cos 3x}}{x^2}\\
-&=\frac{1}{2}+\lim_{x\rightarrow 0}\left(\frac{1-\cos\sqrt{2x}}{x^2}+\frac{\cos\sqrt{2x}\left(1-\sqrt[3]{\cos 3x}\right)}{x^2}\right)\\
-&=\frac{1}{2}+\lim_{x\rightarrow 0}\left(\frac{1-\sqrt{1+\left(\cos 2x-1\right)}}{x^2}+\frac{1-\sqrt[3]{1+\left(\cos 3x-1\right)}}{x^2}\right)\\
-&=\frac{1}{2}+\lim_{x\rightarrow 0}\frac{1-\cos 2x}{2x^2}+\lim_{x\rightarrow 0}\frac{1-\cos 3x}{3x^2}\\
-&=3
+	\lim_{x\rightarrow 0}\frac{1-\cos x\sqrt{\cos 2x}\sqrt[3]{\cos 3x}}{x^2}&=\lim_{x\rightarrow 0}\left(\frac{1-\cos x}{x^2}+\frac{\cos x\left(1-\sqrt{\cos 2x}\sqrt[3]{\cos 3x}\right)}{x^2}\right)\\
+	&=\frac{1}{2}+\lim_{x\rightarrow 0}\frac{1-\sqrt{\cos 2x}\sqrt[3]{\cos 3x}}{x^2}\\
+	&=\frac{1}{2}+\lim_{x\rightarrow 0}\left(\frac{1-\cos\sqrt{2x}}{x^2}+\frac{\cos\sqrt{2x}\left(1-\sqrt[3]{\cos 3x}\right)}{x^2}\right)\\
+	&=\frac{1}{2}+\lim_{x\rightarrow 0}\left(\frac{1-\sqrt{1+\left(\cos 2x-1\right)}}{x^2}+\frac{1-\sqrt[3]{1+\left(\cos 3x-1\right)}}{x^2}\right)\\
+	&=\frac{1}{2}+\lim_{x\rightarrow 0}\frac{1-\cos 2x}{2x^2}+\lim_{x\rightarrow 0}\frac{1-\cos 3x}{3x^2}\\
+	&=3
 \end{align*}
 	\end{solution}
 	\end{answer}
 \ws {解答题}{(\textbf{ 本题满分8分})\\}\\\\
-设函数$f(t)$在$t\ne 0$时一阶连续可导，且$f(1)=0$，求函数$f(x^2-y^2)$，使得曲线积分$\displaystyle \upint_L{y\left(2-f\left(x^2-y^2\right)\right)}\mathrm {d}x+xf\left(x^2-y^2\right)\mathrm{d}y
+设函数$f(t)$在$t\ne 0$时一阶连续可导，且$f(1)=0$，求函数$f(x^2-y^2)$，使得曲线积分$\displaystyle \int_L{y\left(2-f\left(x^2-y^2\right)\right)}\mathrm {d}x+xf\left(x^2-y^2\right)\mathrm{d}y
 $与路径无关，其中$L$为任一不与直线$y=\pm x$相交的分段光滑闭曲线.
 	\begin{answer}
 	\begin{solution}
@@ -89,108 +89,112 @@ $与路径无关，其中$L$为任一不与直线$y=\pm x$相交的分段光滑�
 P\left(x,y\right)=y\left(2-f\left(x^2-y^2\right)\right)\\
 Q\left(x,y\right)=x+xf\left(x^2-y^2\right)\\
 \end{array}\right. $，于是
-\[
-\left\{\begin{array}{l}
-\frac{\partial P\left(x,y\right)}{\partial y}=2-f\left(x^2-y^2\right)+2y^2f'\left(x^2-y^2\right)\\
-\frac{\partial Q\left(x,y\right)}{\partial x}=f\left(x^2+y^2\right)+2x^2f'\left(x^2-y^2\right)\\
-\end{array}\right. 
-\]
+	\[
+	\left\{\begin{array}{l}
+	\vspace{1em}
+	\frac{\partial P\left(x,y\right)}{\partial y}=2-f\left(x^2-y^2\right)+2y^2f'\left(x^2-y^2\right)\\
+	\frac{\partial Q\left(x,y\right)}{\partial x}=f\left(x^2+y^2\right)+2x^2f'\left(x^2-y^2\right)\\
+	\end{array}\right. 
+	\]
 由题设可知，积分与路径无关，于是有
-\[
-\frac{\partial Q\left(x,y\right)}{\partial x}=\frac{\partial P\left(x,y\right)}{\partial y}\Longrightarrow\left(x^2-y^2\right)f'\left(x^2-y^2\right)+f\left(x^2-y^2\right)=1
-\]
+	\[
+	\frac{\partial Q\left(x,y\right)}{\partial x}=\frac{\partial P\left(x,y\right)}{\partial y}\Longrightarrow\left(x^2-y^2\right)f'\left(x^2-y^2\right)+f\left(x^2-y^2\right)=1
+	\]
 \hfill\dotfill 5分
 
 记$t=x^2-y^2$，即微分方程
-\[
-tf'\left(t\right)+f\left(t\right)=1\Leftrightarrow\left(tf\left(y\right)\right)'=1\Rightarrow tf\left(t\right)=y+C
-\]
+	\[
+	tf'\left(t\right)+f\left(t\right)=1\Leftrightarrow\left(tf\left(y\right)\right)'=1\Rightarrow tf\left(t\right)=y+C
+	\]
 又$f(1)=0$，可得$C=-1\textbf{，}f(t)=1-\frac{1}{t}$，从而
-\[
-f\left(x^2-y^2\right)=1-\frac{1}{x^2-y^2}
-\]
+$f\left(x^2-y^2\right)=1-\frac{1}{x^2-y^2}
+$
 \hfill\dotfill 8分
-	\end{solution}
-	\end{answer}
+\end{solution}
+\end{answer}
 
 
 
 \ws {解答题}{(\textbf{本题满分14分})\\}\\\\
 设$f(x)$在区间$[0,1]$上连续，且$1\leq f\left(x\right)\leq3$.证明：
-\[
-0\leq\upint_0^1{f\left(x\right)\mathrm{d}x\upint_0^1{\frac{1}{f\left(x\right)}\mathrm{d}x\leq\frac{4}{3}}}
-\]
+	\[
+	0\leq\int_0^1{f\left(x\right)\mathrm{d}x\int_0^1{\frac{1}{f\left(x\right)}\mathrm{d}x\leq\frac{4}{3}}}
+	\]
 	\begin{answer}
 	\begin{proof}
 	由 Cauchy-Schwarz 不等式：
-\[
-\upint_0^1{f\left(x\right)\mathrm{d}x\upint_0^1{\frac{1}{f\left(x\right)}\mathrm{d}x\geq\left(\upint_0^1{\sqrt{f\left(x\right)}\sqrt{\frac{1}{f\left(x\right)}}}\mathrm{d}x\right)}^2}=1
-\]
+	\[
+	\int_0^1{f\left(x\right)\mathrm{d}x\int_0^1{\frac{1}{f\left(x\right)}\mathrm{d}x\geq\left(\int_0^1{\sqrt{f\left(x\right)}\sqrt{\frac{1}{f\left(x\right)}}}\mathrm{d}x\right)}^2}=1
+	\]
 \hfill\dotfill 4分
 
 又由基本不等式得：
-\[
-\upint_0^1{f\left(x\right)\mathrm{d}x\upint_0^1{\frac{3}{f\left(x\right)}}\mathrm{d}x}\le\frac{1}{4}\left(\upint_0^1{f\left(x\right)\mathrm{d}x+\upint_0^1{\frac{3}{f\left(x\right)}\mathrm{d}x}}\right)^2
-\]
-再由条件$1\le f\left(x\right)\le 3$，有$\left(f\left(x\right)-1\right)\left(f\left(x\right)-3\right)\le 0$，则
-\[
-f\left(x\right)+\frac{3}{f\left(x\right)}\le 4\Rightarrow\upint_0^1{\left(f\left(x\right)+\frac{3}{f\left(x\right)}\right)\mathrm{d}x\le 4}
-\]
+	\[
+	\int_0^1{f\left(x\right)\mathrm{d}x\int_0^1{\frac{3}{f\left(x\right)}}\mathrm{d}x}\leq\frac{1}{4}\left(\int_0^1{f\left(x\right)\mathrm{d}x+\int_0^1{\frac{3}{f\left(x\right)}\mathrm{d}x}}\right)^2
+	\]
+再由条件$1\leq f\left(x\right)\leq 3$，有$\left(f\left(x\right)-1\right)\left(f\left(x\right)-3\right)\leq 0$，则
+	\[
+	f\left(x\right)+\frac{3}{f\left(x\right)}\leq 4\Rightarrow\int_0^1{\left(f\left(x\right)+\frac{3}{f\left(x\right)}\right)\mathrm{d}x\leq 4}
+	\]
 \hfill\dotfill 10分
 
 即可得
-\[
-1\le\upint_0^1{f\left(x\right)\mathrm{d}x\upint_0^1{\frac{1}{f\left(x\right)}\mathrm{d}x\le\frac{4}{3}}}
-\]
+	\[
+	1\le\int_0^1{f\left(x\right)\mathrm{d}x\int_0^1{\frac{1}{f\left(x\right)}\mathrm{d}x\le\frac{4}{3}}}
+	\]
 \hfill\dotfill 14分\\
 	\end{proof}
 	\end{answer}
 \ws {解答题}{( \textbf{本题满分12分})\\}\\\\
-计算三重积分$ \upiiint_{\left(V\right)}{\left(x^2+y^2\right)}\mathrm{d}V
+计算三重积分$ \iiint_{\left(V\right)}{\left(x^2+y^2\right)}\mathrm{d}V
 $，其中$(V)$是由$x^2+y^2+\left(z-2\right)^2\geq 4$，$x^2+y^2+\left(z-1\right)^2\leq9$及$z\geq0$所围成的空间图形.
 
 	\begin{answer}
 	\begin{solution}
 (1)计算打球$(V_1)$的积分，利用球坐标换元，令
-\[
-\left(V_1\right):\left\{\begin{array}{l}
-x=r\sin\varphi\cos\theta ,y=r\sin\varphi\sin\theta ,z-1=r\cos\varphi\\
-0\leq r\leq 3,0\leq\varphi\leq\pi ,0\leq\theta\leq 2\pi\\
-\end{array}\right. 
-\]
+	\[
+	\left(V_1\right):\left\{\begin{array}{l}
+	x=r\sin\varphi\cos\theta ,y=r\sin\varphi\sin\theta ,z-1=r\cos\varphi\\
+	0\leq r\leq 3,0\leq\varphi\leq\pi ,0\leq\theta\leq 2\pi\\
+	\end{array}\right. 
+	\]
 于是有
-\[\upiiint _ { \left( V _ { 1 } \right) } \left( x ^ { 2 } + y ^ { 2 } \right) \mathrm { d } V = \upint _ { 0 } ^ { 2 \pi } \mathrm { d } \theta \upint _ { 0 } ^ { \pi }\mathrm { d } \varphi \upint _ { 0 } ^ { 3 } r ^ { 3 } \sin ^ { 2 } \varphi r ^ { 2 } \sin \varphi = \frac { 8 } { 15 } \cdot 3 ^ { 5 } \pi\]
+	\[
+	\iiint _ { \left( V _ { 1 } \right) } \left( x ^ { 2 } + y ^ { 2 } \right) \mathrm { d } V = \int _ { 0 } ^ { 2 \pi } \mathrm { d } \theta \int _ { 0 } ^ { \pi }\mathrm { d } \varphi \int _ { 0 } ^ { 3 } r ^ { 3 } \sin ^ { 2 } \varphi r ^ { 2 } \sin \varphi = \frac { 8 } { 15 } \cdot 3 ^ { 5 } \pi
+	\]
 \hfill\dotfill 4分
 
 (2)计算小球$(V_2)$的积分，利用球坐标换元，令
-\[
-\left(V_2\right):\left\{\begin{array}{l}
-x=r\sin\varphi\cos\theta ,y=r\sin\varphi\sin\theta ,z-2=r\cos\varphi\\
-0\leq r\leq 2,0\leq\varphi\leq\pi ,0\leq\theta\leq 2\pi\\
-\end{array}\right. 
-\]
+	\[
+	\left(V_2\right):\left\{\begin{array}{l}
+	x=r\sin\varphi\cos\theta ,y=r\sin\varphi\sin\theta ,z-2=r\cos\varphi\\
+	0\leq r\leq 2,0\leq\varphi\leq\pi ,0\leq\theta\leq 2\pi\\
+	\end{array}\right. 
+	\]
 于是有
-\[\upiiint _ { \left( V _ { 2} \right) } \left( x ^ { 2 } + y ^ { 2 } \right) \mathrm { d } V = \upint _ { 0 } ^ { 2 \pi } \mathrm { d } \theta \upint _ { 0 } ^ { \pi }\mathrm { d } \varphi \upint _ { 0 } ^ { 2 } r ^ { 2 } \sin ^ { 2 } \varphi r ^ { 2 } \sin \varphi = \frac { 8 } { 15 } \cdot 2^ { 5 } \pi\]
+	\[
+	\iiint _ { \left( V _ { 2} \right) } \left( x ^ { 2 } + y ^ { 2 } \right) \mathrm { d } V = \int _ { 0 } ^ { 2 \pi } \mathrm { d } \theta \int _ { 0 } ^ { \pi }\mathrm { d } \varphi \int _ { 0 } ^ { 2 } r ^ { 2 } \sin ^ { 2 } \varphi r ^ { 2 } \sin \varphi = \frac { 8 } { 15 } \cdot 2^ { 5 } \pi
+	\]
 \hfill\dotfill 8分
 
 (3)计算大球$z=0$下部分的积分$V_3$，利用球坐标换元，令
-\[
-\left(V_3\right):\left\{\begin{array}{l}
-x=r\cos\theta ,y=r\sin\theta ,1-\sqrt{9-r^2}\leq z\leq 0\\
-0\leq r\leq 2\sqrt{2},0\leq\theta\leq 2\pi\\
-\end{array}\right. 
-\]
+	\[
+	\left(V_3\right):\left\{\begin{array}{l}
+	x=r\cos\theta ,y=r\sin\theta ,1-\sqrt{9-r^2}\leq z\leq 0\\
+	0\leq r\leq 2\sqrt{2},0\leq\theta\leq 2\pi\\
+	\end{array}\right. 
+	\]
 于是有
 \begin{align*}
-\upiiint_{\left(V_3\right)}{\left(x^2+y^2\right)\mathrm{d}V}&=\upiint_{r\leq 2\sqrt{2}}{r\mathrm{d}r}\mathrm{d}\theta\upint_{1-\sqrt{9-r^2}}^0{r^2\mathrm{d}z}\\
-&=\upint_0^{2\pi}{\mathrm{d}\theta}\upint_0^{2\sqrt{2}}{r^3\left(\sqrt{9-r^2}-1\right)}\\
-&=\left(124-\frac{2}{5}\cdot 3^5+\frac{2}{5}\right)\pi 
+	\iiint_{\left(V_3\right)}{\left(x^2+y^2\right)\mathrm{d}V}&=\iint_{r\leq 2\sqrt{2}}{r\mathrm{d}r}\mathrm{d}\theta\int_{1-\sqrt{9-r^2}}^0{r^2\mathrm{d}z}\\
+	&=\int_0^{2\pi}{\mathrm{d}\theta}\int_0^{2\sqrt{2}}{r^3\left(\sqrt{9-r^2}-1\right)}\\
+	&=\left(124-\frac{2}{5}\cdot 3^5+\frac{2}{5}\right)\pi 
 \end{align*}
 综上所述有
 \begin{align*}
-\upiiint _ { ( V ) } \left( x ^ { 2 } + y ^ { 2 } \right) \mathrm { d } V& = \upiiint _ { \left( V _ { 1 } \right) } \left( x ^ { 2 } + y ^ { 2 } \right) \mathrm { d } V - \upiiint _ { \left( V _ { 2 } \right) } \left( x ^ { 2 } + y ^ { 2 } \right) \mathrm { d } V - \upiiint _ { \left( V _ { 3 } \right) } \left( x ^ { 2 } + y ^ { 2 } \right) \mathrm { d } V\\
-&= \frac { 8 } { 15 } \cdot 3 ^ { 5 } \pi+\frac { 8 } { 15 } \cdot 2^ { 5 } \pi+\left(124-\frac{2}{5}\cdot 3^5+\frac{2}{5}\right)\pi\\
-&=\frac { 256 } { 3 } \pi
+	\iiint _ { ( V ) } \left( x ^ { 2 } + y ^ { 2 } \right) \mathrm { d } V& = \iiint _ { \left( V _ { 1 } \right) } \left( x ^ { 2 } + y ^ { 2 } \right) \mathrm { d } V - \iiint _ { \left( V _ { 2 } \right) } \left( x ^ { 2 } + y ^ { 2 } \right) \mathrm { d } V - \iiint _ { \left( V _ { 3 } \right) } \left( x ^ { 2 } + y ^ { 2 } \right) \mathrm { d } V\\
+	&= \frac { 8 } { 15 } \cdot 3 ^ { 5 } \pi+\frac { 8 } { 15 } \cdot 2^ { 5 } \pi+\left(124-\frac{2}{5}\cdot 3^5+\frac{2}{5}\right)\pi\\
+	&=\frac { 256 } { 3 } \pi
 \end{align*}
 \hfill\dotfill 12分
 	\end{solution}
@@ -198,30 +202,30 @@ x=r\cos\theta ,y=r\sin\theta ,1-\sqrt{9-r^2}\leq z\leq 0\\
 
 \ws {解答题}{(\textbf{ 本题满分14}分)\\}\\\\
 设$f(x,y)$在区域D内可微，且$\sqrt{\left(\frac{\partial f}{\partial x}\right)^2+\left(\frac{\partial f}{\partial y}\right)^2}\leq M$，$A\left(x_1,y_1\right),B\left(x_2,y_2\right)$是D内两点，线段AB包含在D内，证明：
-\[
-|f\left(x_1,y_1\right)-f\left(x_2,y_2\right)|\leq M|AB|
-\]
+	\[
+	|f\left(x_1,y_1\right)-f\left(x_2,y_2\right)|\leq M|AB|
+	\]
 其中$|AB|$表示线段$AB$的长度.
 	\begin{answer}
 	\begin{proof}
 作辅助函数
-\[
-\varphi\left(t\right)=f\left(x_1+t\left(x_2-x_1\right)\cdot y_1+t\left(y_2-y_1\right)\right)
-\]
+	\[
+	\varphi\left(t\right)=f\left(x_1+t\left(x_2-x_1\right)\cdot y_1+t\left(y_2-y_1\right)\right)
+	\]
 \hfill\dotfill 2分
 
 显然$\varphi(t)$在$[0,1]$可导，根据Lagrange中值定理，存在$c\in(0,1)$，使得
-\[
-\varphi\left(1\right)-\varphi\left(0\right)=\varphi '\left(c\right)=\frac{\partial f\left(u,v\right)}{\partial u}\left(x_2-x_1\right)+\frac{\partial f\left(u,v\right)}{\partial v}\left(y_2-y_1\right)
-\]
+	\[
+	\varphi\left(1\right)-\varphi\left(0\right)=\varphi '\left(c\right)=\frac{\partial f\left(u,v\right)}{\partial u}\left(x_2-x_1\right)+\frac{\partial f\left(u,v\right)}{\partial v}\left(y_2-y_1\right)
+	\]
 \hfill\dotfill 8分
 
 即可得到
 \begin{align*}
-\left|\varphi\left(1\right)-\varphi\left(0\right)\right|&=\left| f\left(x_2,y_2\right)-f\left(x_1,y_1\right)\right|\\
-&=\left|\frac{\partial f\left(u,v\right)}{\partial u}\left(x_2-x_1\right)+\frac{\partial f\left(u,v\right)}{\partial v}\left(y_2-y_1\right)\right|\\
-&\leq\sqrt{\left(\frac{\partial f\left(u,v\right)}{\partial u}\right)^2+\left(\frac{\partial f\left(u,v\right)}{\partial v}\right)^2}\cdot\sqrt{\left(x_2-x_1\right)^2+\left(y_2-y_1\right)^2}\\
-&\leq M\left| AB\right|
+	\left|\varphi\left(1\right)-\varphi\left(0\right)\right|&=\left| f\left(x_2,y_2\right)-f\left(x_1,y_1\right)\right|\\
+	&=\left|\frac{\partial f\left(u,v\right)}{\partial u}\left(x_2-x_1\right)+\frac{\partial f\left(u,v\right)}{\partial v}\left(y_2-y_1\right)\right|\\
+	&\leq\sqrt{\left(\frac{\partial f\left(u,v\right)}{\partial u}\right)^2+\left(\frac{\partial f\left(u,v\right)}{\partial v}\right)^2}\cdot\sqrt{\left(x_2-x_1\right)^2+\left(y_2-y_1\right)^2}\\
+	&\leq M\left| AB\right|
 \end{align*}
 \hfill\dotfill 14分
 	\end{proof}
@@ -232,26 +236,26 @@ x=r\cos\theta ,y=r\sin\theta ,1-\sqrt{9-r^2}\leq z\leq 0\\
 
 \ws {解答题}{( \textbf{本题满分14分})\\}\\\\
 证明：对于连续函数$f(x)>0$，有
-\[
-\ln\upint_0^1{f\left(x\right)\mathrm{d}x\geq\upint_0^1{\ln f\left(x\right)\mathrm{d}x}}
-\]
+	\[
+	\ln\int_0^1{f\left(x\right)\mathrm{d}x\geq\int_0^1{\ln f\left(x\right)\mathrm{d}x}}
+	\]
 
 	\begin{answer}
 	\begin{proof}
 由定积分定义，将$[0,1]$分$n$等分，可取$\Delta x=\frac{1}{n}$，由“算术平均数$\geq$几何平均数”得：
-\[
-\frac{1}{n}\sum_{k=1}^n{f\left(\frac{k}{n}\right)\geq\sqrt[n]{f\left(\frac{1}{n}\right)\cdots f\left(\frac{n}{n}\right)}}=\mathrm{exp}{\frac{1}{n}\sum_{k=1}^n{\ln f\left(\frac{k}{n}\right)}}
-\]
+	\[
+	\frac{1}{n}\sum_{k=1}^n{f\left(\frac{k}{n}\right)\geq\sqrt[n]{f\left(\frac{1}{n}\right)\cdots f\left(\frac{n}{n}\right)}}=\mathrm{exp}{\frac{1}{n}\sum_{k=1}^n{\ln f\left(\frac{k}{n}\right)}}
+	\]
 \hfill\dotfill 4分
-\[
-\Rightarrow\upint_0^1{f\left(x\right)}\mathrm{d}x\geq \mathrm{exp}{\lim_{n\rightarrow\infty}\frac{1}{n}\sum_{k=1}^n{\ln f\left(\frac{k}{n}\right)}}=\mathrm{exp}{\upint_0^1{\ln f\left(x\right)}}\mathrm{d}x
-\]
+	\[
+	\Rightarrow\int_0^1{f\left(x\right)}\mathrm{d}x\geq \mathrm{exp}{\lim_{n\rightarrow\infty}\frac{1}{n}\sum_{k=1}^n{\ln f\left(\frac{k}{n}\right)}}=\mathrm{exp}{\int_0^1{\ln f\left(x\right)}}\mathrm{d}x
+	\]
 \hfill\dotfill 10分
 
 然后两边取对数即证
-\[
-\ln\upint_0^1{f\left(x\right)\mathrm{d}x\geq\upint_0^1{\ln f\left(x\right)\mathrm{d}x}}
-\]
+	\[
+	\ln\int_0^1{f\left(x\right)\mathrm{d}x\geq\int_0^1{\ln f\left(x\right)\mathrm{d}x}}
+	\]
 \hfill\dotfill 14分
 
 或者考虑令$g(x)=\mathrm {ln}x$，则$g'\left(x\right)= \frac{1}{x}$，$g''\left(x\right)=-\frac{1}{x^2}<0$，所以$g(x)$为凹函数，可由琴声不等式定理即证.\\
@@ -268,19 +272,20 @@ x=r\cos\theta ,y=r\sin\theta ,1-\sqrt{9-r^2}\leq z\leq 0\\
 令$S_k=\sum_{i=1}^k{a_i}b_i,a_kb_k=S_k-S_{k-1},S_0=0,a_k=\frac{s_k-S_{k-1}}{b_k},k=1,2,\cdots $
 \hfill\dotfill 4分
 \begin{align*} 
-\sum_{k=1}^N{a}_k&		=\sum_{k=1}^N{\frac{S_k-S_{k-1}}{b_k}}=\sum_{k=1}^{N-1}{\left(\frac{S_k}{b_k}-\frac{S_k}{b_{k+1}}\right)}+\frac{S_N}{b_N}\\
- &=\sum_{k=1}^{N-1}{\frac{b_{k+1}-b_k}{b_kb_{k+1}}}S_k+\frac{S_N}{b_N}\geq\sum_{k=1}^{N-1}{\frac{\delta}{b_kb_{k+1}}}S_k
+	\sum_{k=1}^N{a}_k
+	&		=\sum_{k=1}^N{\frac{S_k-S_{k-1}}{b_k}}=\sum_{k=1}^{N-1}{\left(\frac{S_k}{b_k}-\frac{S_k}{b_{k+1}}\right)}+\frac{S_N}{b_N}\\
+ 	&=\sum_{k=1}^{N-1}{\frac{b_{k+1}-b_k}{b_kb_{k+1}}}S_k+\frac{S_N}{b_N}\geq\sum_{k=1}^{N-1}{\frac{\delta}{b_kb_{k+1}}}S_k
 \end{align*}
 所以$\sum_{k=1}^{\infty}{\frac{S_k}{b_kb_{k+1}}}$收敛.
 \hfill\dotfill 10分
 
 由算术-几何平均不等式得
-\[
-\sqrt[k]{\left(a_1a_2\cdots a_k\right)\left(b_1b_2\cdots b_k\right)}\leq\frac{a_1b_1+\cdots +a_kb_k}{k}=\frac{S_k}{k}
-\]
-\[
-\sum_{k=1}^{\infty}{\frac{k\sqrt[k]{\left(a_1a_2\cdots a_k\right)\left(b_1b_2\cdots b_k\right)}}{b_{k+1}b_k}}\leq\sum_{k=1}^{\infty}{\frac{S_k}{b_kb_{k+1}}}
-\]
+	\[
+	\sqrt[k]{\left(a_1a_2\cdots a_k\right)\left(b_1b_2\cdots b_k\right)}\leq\frac{a_1b_1+\cdots +a_kb_k}{k}=\frac{S_k}{k}
+	\]
+	\[
+	\sum_{k=1}^{\infty}{\frac{k\sqrt[k]{\left(a_1a_2\cdots a_k\right)\left(b_1b_2\cdots b_k\right)}}{b_{k+1}b_k}}\leq\sum_{k=1}^{\infty}{\frac{S_k}{b_kb_{k+1}}}
+	\]
 故结论成立.
 
 \hfill\dotfill 14分
